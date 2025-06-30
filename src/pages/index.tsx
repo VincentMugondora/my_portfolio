@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Stats from '@/components/Stats';
 import Hero from '@/components/Hero';
 import ExperiencedServices from '@/components/ExperiencedServices';
+import TopSkills from '@/components/TopSkills';
 
 const Home: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       <Hero />
       <Stats />
       <ExperiencedServices />
+      <TopSkills />
     </div>
   );
 };
