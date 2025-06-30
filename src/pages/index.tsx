@@ -5,6 +5,7 @@ import Stats from '@/components/Stats';
 import Hero from '@/components/Hero';
 import ExperiencedServices from '@/components/ExperiencedServices';
 import TopSkills from '@/components/TopSkills';
+import PortfolioSection from '@/components/PortfolioSection';
 
 const Home: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
       <Stats />
       <ExperiencedServices />
       <TopSkills />
+      <PortfolioSection />
     </div>
   );
 };
