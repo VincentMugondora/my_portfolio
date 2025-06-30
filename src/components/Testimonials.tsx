@@ -2,11 +2,11 @@ import React from 'react';
 
 const testimonials = [
   {
-    text: 'Shayan's designs are fantastic. Highly recommend!',
+    text: "Shayan's designs are fantastic. Highly recommend!",
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   {
-    text: 'Shayan's design skills are top-notch. He transformed our app with his innovative UI/UX solutions.',
+    text: "Shayan's design skills are top-notch. He transformed our app with his innovative UI/UX solutions.",
     avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
   },
   {
@@ -26,7 +26,7 @@ const testimonials = [
     avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
   },
   {
-    text: 'Shayan's designs are fantastic. Highly recommend!',
+    text: "Shayan's designs are fantastic. Highly recommend!",
     avatar: 'https://randomuser.me/api/portraits/men/23.jpg',
   },
   {
