@@ -42,22 +42,35 @@ const Testimonials = () => (
       <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-12">
         WHAT <span className="text-blue-500 italic">CLIENTS</span> <br className="hidden md:block" /> SAYING ABOUT ME
       </h2>
-      {/* Testimonials Grid */}
-      <div className="flex flex-wrap gap-4 justify-center">
-        {testimonials.map((t, idx) => (
-          <div
-            key={idx}
-            className="bg-blue-600 text-white rounded-lg px-6 py-4 flex items-center gap-4 min-w-[260px] max-w-xs shadow-md"
-          >
-            <span className="text-2xl font-bold mr-2">"</span>
-            <span className="flex-1 text-sm">{t.text}</span>
-            <img
-              src={t.avatar}
-              alt="client avatar"
-              className="w-9 h-9 rounded-full object-cover border-2 border-white shadow"
-            />
-          </div>
-        ))}
+      {/* Marquee Testimonials */}
+      <div className="overflow-x-hidden relative">
+        <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused] group">
+          {testimonials.concat(testimonials).map((t, idx) => (
+            <div
+              key={idx}
+              className="bg-white/90 text-[#18181b] rounded-xl px-8 py-6 flex items-center gap-4 min-w-[320px] max-w-md shadow-lg border border-[#e5e7eb] font-medium transition-transform duration-300 group-hover:scale-105"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              <span className="text-2xl font-bold text-blue-600 mr-2">“</span>
+              <span className="flex-1 text-base leading-relaxed">{t.text}</span>
+              <img
+                src={t.avatar}
+                alt="client avatar"
+                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500 shadow"
+              />
+            </div>
+          ))}
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 32s linear infinite;
+            width: max-content;
+          }
+        `}</style>
       </div>
     </div>
   </section>
