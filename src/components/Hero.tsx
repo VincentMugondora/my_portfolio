@@ -10,11 +10,11 @@ const Hero = () => (
         <span className="text-sm text-gray-300">Available for Work</span>
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-        A <span className="text-blue-400 italic font-bold">UX UI</span> DESIGNER<br />
-        FROM PAKISTAN
+        A <span className="text-blue-400 italic font-bold">Software Engineer</span><br />
+        FROM Zimbabwe
       </h1>
       <p className="text-gray-400 mb-8 max-w-md">
-        I earned a Bachelor of <span className="text-white font-semibold">Computer Science</span> because I love both art and technology. This led me to <span className="text-white font-semibold">UI/UX design</span>, where I can blend these passions and build a rewarding career.
+        I earned a Bachelor of <span className="text-white font-semibold">Computer Science</span> because I love both problem-solving and technology. This passion led me to <span className="text-white font-semibold">software engineering</span>, where I blend creativity and logic to build impactful digital solutions.
       </p>
       <div className="flex space-x-4">
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200">
@@ -30,11 +30,11 @@ const Hero = () => (
     <div className="flex-1 flex justify-center md:justify-end mt-10 md:mt-0">
       <div className="relative w-64 h-72 rounded-[2.5rem] bg-blue-700/30 flex items-center justify-center overflow-hidden">
         <Image
-          src="/person.png"
+          src="/person.jpg"
           alt="Profile"
           width={260}
           height={320}
-          className="object-cover rounded-[2.5rem]"
+          className="object-cover w-full h-full rounded-[2.5rem]"
           priority
         />
       </div>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 // import Navbar from '../components/Navbar';
 import Stats from '@/components/Stats';
 import Hero from '@/components/Hero';
+import ExperiencedServices from '@/components/ExperiencedServices';
 
 const Home: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <Hero />
       <Stats />
+      <ExperiencedServices />
     </div>
   );
 };
