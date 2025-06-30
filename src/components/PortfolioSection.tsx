@@ -47,7 +47,11 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setSelected(cat)}
-              className={`px-5 py-1.5 rounded-full font-semibold text-sm transition-colors duration-200 ${selected === cat ? 'bg-blue-600 text-white' : 'bg-[#18181b] text-gray-400 hover:bg-blue-900 hover:text-white'}`}
+              className={`px-6 py-2 rounded-full font-semibold text-sm border transition-all duration-200 shadow-sm
+                ${selected === cat
+                  ? 'bg-blue-600 text-white border-blue-500 shadow-md scale-105'
+                  : 'bg-[#18181b] text-gray-400 border-[#23272F] hover:bg-blue-900 hover:text-white hover:border-blue-500 hover:shadow-md'}
+              `}
             >
               {cat}
             </button>
@@ -60,12 +64,11 @@ const PortfolioSection = () => {
               key={idx}
               className="bg-[#18181b] border border-[#23272F] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group hover:-translate-y-2"
             >
-              <div className="w-[100%] flex items-center justify-center p-4">
+              <div className="w-full flex items-center justify-center p-0">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-xl w-full h-[100%] object-contain bg-[#23272F]"
-                  style={{ maxHeight: 220 }}
+                  className="rounded-t-2xl w-full h-56 object-cover bg-[#23272F]"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-end">
@@ -77,7 +80,7 @@ const PortfolioSection = () => {
         </div>
         {/* View All Projects Button */}
         <div className="flex justify-center">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-full font-semibold transition-colors duration-200">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3 rounded-full font-semibold text-base shadow-md hover:shadow-lg transition-transform duration-200 transform hover:scale-105 border border-blue-500">
             View All Projects
           </button>
         </div>
