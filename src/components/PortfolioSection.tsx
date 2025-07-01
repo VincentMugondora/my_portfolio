@@ -42,7 +42,7 @@ const PortfolioSection = () => {
           RECENT <span className="text-blue-500 italic">BEST WORK</span> <br className="hidden md:block" /> PORTFOLIO
         </h2>
         {/* Filters */}
-        <div className="flex justify-center gap-4 mb-10">
+        <div className="flex justify-center flex-wrap gap-4 mb-10">
           {categories.map(cat => (
             <button
               key={cat}
