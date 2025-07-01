@@ -58,7 +58,7 @@ const PortfolioSection = () => {
           ))}
         </div>
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {filtered.map((project, idx) => (
             <div
               key={idx}
@@ -68,11 +68,11 @@ const PortfolioSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-t-2xl w-full h-56 object-cover bg-[#23272F]"
+                  className="rounded-t-2xl w-full h-48 sm:h-56 object-cover bg-[#23272F] transition-all duration-200"
                 />
               </div>
-              <div className="p-6 flex-1 flex flex-col justify-end">
-                <h3 className="text-white text-lg font-semibold mb-3">{project.title}</h3>
+              <div className="p-4 sm:p-6 flex-1 flex flex-col justify-end">
+                <h3 className="text-white text-base sm:text-lg font-semibold mb-2 sm:mb-3">{project.title}</h3>
                 <span className="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-semibold">{project.category}</span>
               </div>
             </div>
