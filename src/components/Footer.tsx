@@ -32,7 +32,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-gradient-to-t from-[#18181b] via-[#23272F] to-[#18181b] text-gray-400 pt-12 pb-6 px-4 mt-12">
+    <footer className="w-full bg-[#111111] text-gray-400 pt-12 pb-6 px-4 mt-12">
       <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-10">
         {/* Logo & Tagline */}
         <div className="flex flex-col gap-4 min-w-[200px]">
