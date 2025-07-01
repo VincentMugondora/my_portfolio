@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 const navItems = [
@@ -9,31 +9,77 @@ const navItems = [
   { name: 'Contact', href: '/contact' },
 ];
 
-const Navbar: React.FC = () => (
-  <nav className="flex items-center justify-between max-w-6xl mx-auto py-8 px-4 text-gray-400 text-sm w-full">
-    {/* Brand Name */}
-    <span className="font-extrabold text-white text-lg tracking-wide flex items-center">vincent<span className="text-blue-500 ml-1">.</span></span>
-    {/* Nav Links */}
-    <div className="flex justify-center space-x-10 flex-1">
-      {navItems.map((item, idx) => (
-        <Link
-          key={item.name}
-          href={item.href}
-          className={
-            idx === 0
-              ? 'text-white border-b-2 border-blue-500 pb-1'
-              : 'hover:text-white transition-colors duration-200'
-          }
-        >
-          {item.name}
-        </Link>
-      ))}
-    </div>
-    {/* Get a Quote Button */}
-    <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition-colors duration-200 ml-6">
-      Get a Quote
-    </button>
-  </nav>
-);
+const Navbar: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav className="flex items-center justify-between max-w-6xl mx-auto py-6 px-4 text-gray-400 text-sm w-full relative">
+      {/* Brand Name */}
+      <span className="font-extrabold text-white text-lg tracking-wide flex items-center z-20">vincent<span className="text-blue-500 ml-1">.</span></span>
+      {/* Hamburger Icon */}
+      <button
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 z-20"
+        aria-label="Toggle menu"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span className={`block w-6 h-0.5 bg-white mb-1 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-white mb-1 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+      </button>
+      {/* Nav Links Desktop */}
+      <div className="hidden md:flex justify-center space-x-10 flex-1">
+        {navItems.map((item, idx) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            className={
+              idx === 0
+                ? 'text-white border-b-2 border-blue-500 pb-1'
+                : 'hover:text-white transition-colors duration-200'
+            }
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+      {/* Get a Quote Button Desktop */}
+      <div className="hidden md:block ml-6">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition-colors duration-200">
+          Get a Quote
+        </button>
+      </div>
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 bg-[#18181b] bg-opacity-95 flex flex-col items-center justify-center space-y-8 z-10 transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
+      >
+        {navItems.map((item, idx) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            className={
+              idx === 0
+                ? 'text-white text-xl border-b-2 border-blue-500 pb-1'
+                : 'text-gray-300 text-xl hover:text-white transition-colors duration-200'
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            {item.name}
+          </Link>
+        ))}
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 mt-4" onClick={() => setMenuOpen(false)}>
+          Get a Quote
+        </button>
+      </div>
+      {/* Overlay for closing menu */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-0"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+    </nav>
+  );
+};
 
 export default Navbar;
