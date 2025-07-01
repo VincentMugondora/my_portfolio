@@ -50,24 +50,26 @@ const Navbar: React.FC = () => {
       </div>
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-[#18181b] bg-opacity-95 flex flex-col items-center justify-center space-y-8 z-10 transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`fixed inset-0 bg-[#18181b] bg-opacity-95 flex flex-col items-center justify-center z-10 transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
         style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
       >
-        {navItems.map((item, idx) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className={
-              idx === 0
-                ? 'text-white text-xl border-b-2 border-blue-500 pb-1'
-                : 'text-gray-300 text-xl hover:text-white transition-colors duration-200'
-            }
-            onClick={() => setMenuOpen(false)}
-          >
-            {item.name}
-          </Link>
-        ))}
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 mt-4" onClick={() => setMenuOpen(false)}>
+        <div className="flex flex-col items-start justify-center w-4/5 max-w-xs space-y-7">
+          {navItems.map((item, idx) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={
+                idx === 0
+                  ? 'text-white text-2xl font-bold border-b-2 border-blue-500 pb-1 text-left w-full'
+                  : 'text-gray-300 text-2xl font-semibold hover:text-white transition-colors duration-200 text-left w-full'
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 mt-6 w-4/5 max-w-xs mx-auto" onClick={() => setMenuOpen(false)}>
           Get a Quote
         </button>
       </div>
