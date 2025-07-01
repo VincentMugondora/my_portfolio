@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const interests = ['UI UX', 'Website', 'App', 'Branding'];
+const interests = ['Frontend Development', 'Backend Development', 'Full Stack', 'DevOps', 'Cloud', 'AI/ML', 'Mobile Development', 'QA/Testing'];
 
 const ContactSection = () => {
   const [selected, setSelected] = useState('UI UX');
