@@ -20,12 +20,16 @@ const Footer = () => {
           </div>
         </div>
         {/* Newsletter */}
-        <div className="flex flex-col gap-2 min-w-[220px]">
-          <div className="font-semibold text-white mb-1 text-left">Newsletter</div>
-          <div className="text-xs mb-2 text-left">Enter your E-mail & Get the Latest Updates</div>
-          <form className="flex items-center gap-2 w-full">
-            <input type="email" placeholder="your@email.com" className="flex-1 rounded-lg px-3 py-2 bg-[#23272F] border border-[#23272F] text-gray-200 focus:outline-none focus:border-blue-500 text-sm h-10" />
-            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 h-10 rounded-lg font-semibold text-sm transition flex items-center justify-center">Subscribe</button>
+        <div className="flex flex-col gap-2 min-w-[260px]">
+          <div className="font-semibold text-white mb-1 text-left text-lg">Newsletter</div>
+          <div className="text-xs mb-2 text-left text-gray-300">Enter Your E-mail & Get the Latest Updates</div>
+          <form className="w-full">
+            <div className="flex items-center bg-[#181c2f] rounded-2xl px-2 py-1 shadow-inner border border-[#23272F] focus-within:border-blue-500 transition-all">
+              <input type="email" placeholder="info@gmail.com" className="flex-1 bg-transparent outline-none border-none px-3 py-2 text-gray-200 text-sm placeholder-gray-500" />
+              <button type="submit" className="ml-2 h-9 w-9 flex items-center justify-center rounded-xl bg-gradient-to-tr from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 transition-all shadow-md">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+            </div>
           </form>
         </div>
         {/* Products */}
