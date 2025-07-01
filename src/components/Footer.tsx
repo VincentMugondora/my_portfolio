@@ -34,34 +34,26 @@ const Footer = () => {
   return (
     <footer className="w-full bg-gradient-to-t from-[#18181b] via-[#23272F] to-[#18181b] text-gray-400 pt-12 pb-6 px-4 mt-12">
       <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        {/* Logo & Trustpilot */}
+        {/* Logo & Tagline */}
         <div className="flex flex-col gap-4 min-w-[200px]">
           <div className="flex items-center gap-2">
             <Image src="/person.png" alt="Vincent Mugondora" width={36} height={36} className="rounded-full" />
             <span className="font-bold text-white text-lg">Vincent</span>
           </div>
           <div className="bg-[#23272F] rounded-xl px-4 py-2 flex flex-col items-start shadow mt-1 w-fit">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-green-400 font-bold text-xs">Trustpilot</span>
-              <span className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="currentColor" className="text-green-400"><polygon points="10,1 12.59,7.36 19.51,7.64 14,12.14 15.82,19.02 10,15.5 4.18,19.02 6,12.14 0.49,7.64 7.41,7.36"/></svg>
-                ))}
-              </span>
-              <span className="text-xs text-white font-semibold ml-1">4.9/5</span>
-            </div>
-            <span className="text-xs text-gray-400">635 reviews</span>
+            <span className="text-blue-400 font-bold text-xs mb-1">Software Engineer</span>
+            <span className="text-xs text-gray-400">Building robust, scalable, and innovative digital solutions.</span>
           </div>
         </div>
         {/* Newsletter */}
         <div className="flex flex-col gap-2 min-w-[260px]">
           <div className="font-semibold text-white mb-1 text-left text-lg">Newsletter</div>
-          <div className="text-xs mb-2 text-left text-gray-300">Enter Your E-mail & Get the Latest Updates</div>
+          <div className="text-xs mb-2 text-left text-gray-300">Get the latest in software engineering, coding tips, and tech news.</div>
           <form className="w-full" onSubmit={handleNewsletterSubmit}>
             <div className="flex items-center bg-[#181c2f] rounded-2xl px-2 py-1 shadow-inner border border-[#23272F] focus-within:border-blue-500 transition-all">
               <input
                 type="email"
-                placeholder="info@gmail.com"
+                placeholder="youremail@example.com"
                 value={newsletterEmail}
                 onChange={e => setNewsletterEmail(e.target.value)}
                 className="flex-1 bg-transparent outline-none border-none px-3 py-2 text-gray-200 text-sm placeholder-gray-500"
@@ -75,33 +67,30 @@ const Footer = () => {
             {newsletterStatus==='error' && <div className="text-red-400 text-xs mt-2">{newsletterMsg}</div>}
           </form>
         </div>
-        {/* Products */}
+        {/* Software Engineering Links */}
         <div className="flex flex-col gap-2 min-w-[120px]">
-          <div className="font-semibold text-white mb-1">Products</div>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Features</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Pricing</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">About us</a>
+          <div className="font-semibold text-white mb-1">Engineering</div>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Open Source</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Documentation</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">API Reference</a>
         </div>
-        {/* User Center */}
         <div className="flex flex-col gap-2 min-w-[120px]">
-          <div className="font-semibold text-white mb-1">User Center</div>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Feed</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">E-commerce</a>
+          <div className="font-semibold text-white mb-1">Community</div>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Forum</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Events</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Slack</a>
         </div>
-        {/* Resources */}
         <div className="flex flex-col gap-2 min-w-[120px]">
           <div className="font-semibold text-white mb-1">Resources</div>
-          <a href="#" className="hover:text-blue-400 transition text-sm">E-learning</a>
           <a href="#" className="hover:text-blue-400 transition text-sm">Blog</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Tutorials</a>
           <a href="#" className="hover:text-blue-400 transition text-sm">FAQ</a>
         </div>
-        {/* Company */}
         <div className="flex flex-col gap-2 min-w-[120px]">
           <div className="font-semibold text-white mb-1">Company</div>
-          <a href="#" className="hover:text-blue-400 transition text-sm">About us</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Career</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Personal</a>
-          <a href="#" className="hover:text-blue-400 transition text-sm">Contact Us</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">About</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Careers</a>
+          <a href="#" className="hover:text-blue-400 transition text-sm">Contact</a>
         </div>
       </div>
       <div className="w-full flex flex-col md:flex-row items-center justify-between mt-8 border-t border-[#23272F] pt-4 gap-4 text-xs text-gray-500">

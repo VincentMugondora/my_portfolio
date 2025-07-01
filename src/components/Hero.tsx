@@ -20,10 +20,14 @@ const Hero = () => (
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200">
           Submit Your Request
         </button>
-        <button className="border border-gray-600 hover:bg-gray-800 text-white px-6 py-2 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
+        <a
+          href="/Vincent_Mugondora_CV.docx"
+          download
+          className="border border-gray-600 hover:bg-gray-800 text-white px-6 py-2 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200"
+        >
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="inline-block mr-1"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
           <span>Download CV</span>
-        </button>
+        </a>
       </div>
     </div>
     {/* Right: Profile Image */}
