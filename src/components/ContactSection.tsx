@@ -18,7 +18,7 @@ const ContactSection = () => {
             <svg width="22" height="22" fill="none" stroke="#3b82f6" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.91 19.91 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1.13 4.52a1 1 0 0 1-.29 1L8.21 12.21a16 16 0 0 0 7.58 7.58l1.94-1.94a1 1 0 0 1 1-.29l4.52 1.13a1 1 0 0 1 .75 1V21z"/></svg>
             <div>
               <div className="text-sm font-semibold text-white">Phone</div>
-              <div className="text-sm">+92 339 8918814</div>
+              <div className="text-sm">+23777530322</div>
             </div>
           </div>
           <div className="flex items-center gap-4 mb-4 text-gray-300">
@@ -26,7 +26,7 @@ const ContactSection = () => {
             <svg width="22" height="22" fill="none" stroke="#3b82f6" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
             <div>
               <div className="text-sm font-semibold text-white">Email</div>
-              <div className="text-sm">Shayandesign@mail.com</div>
+              <div className="text-sm">vincent@uncommon.org<br/>vinmugondora@gmail.com</div>
             </div>
           </div>
           <div className="flex items-center gap-4 text-gray-300">
@@ -34,7 +34,7 @@ const ContactSection = () => {
             <svg width="22" height="22" fill="none" stroke="#3b82f6" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 21c-4.418 0-8-5.373-8-10A8 8 0 0 1 20 11c0 4.627-3.582 10-8 10z"/><circle cx="12" cy="11" r="3"/></svg>
             <div>
               <div className="text-sm font-semibold text-white">Address</div>
-              <div className="text-sm">Khayaban e Shahbaz,<br />Karachi, Pakistan</div>
+              <div className="text-sm">17 Tagutapadare<br/>Mufakose Harare</div>
             </div>
           </div>
         </div>
