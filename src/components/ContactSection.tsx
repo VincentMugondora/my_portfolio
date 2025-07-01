@@ -4,6 +4,37 @@ const interests = ['UI UX', 'Website', 'App', 'Branding'];
 
 const ContactSection = () => {
   const [selected, setSelected] = useState('UI UX');
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setError(null);
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, interest: selected }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const data = await res.json();
+        setError(data.message || 'Failed to send email');
+        setStatus('error');
+      }
+    } catch (err) {
+      setError('Failed to send email');
+      setStatus('error');
+    }
+  };
 
   return (
     <section className="w-full py-16 px-4 bg-[#111111] flex justify-center">
@@ -57,14 +88,16 @@ const ContactSection = () => {
               </button>
             ))}
           </div>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex gap-4">
-              <input type="text" placeholder="Name" className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
-              <input type="email" placeholder="Email" className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
+              <input name="name" type="text" placeholder="Name" value={form.name} onChange={handleChange} className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
+              <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
             </div>
-            <input type="text" placeholder="Subject" className="bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
-            <textarea placeholder="Message" rows={4} className="bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500 resize-none" />
-            <button type="submit" className="w-full bg-[#23272F] border border-[#23272F] text-gray-300 rounded-lg py-2 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200 mt-2">Lets talk</button>
+            <input name="subject" type="text" placeholder="Subject" value={form.subject} onChange={handleChange} className="bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
+            <textarea name="message" placeholder="Message" rows={4} value={form.message} onChange={handleChange} className="bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500 resize-none" />
+            <button type="submit" disabled={status==='loading'} className="w-full bg-[#23272F] border border-[#23272F] text-gray-300 rounded-lg py-2 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200 mt-2">{status==='loading' ? 'Sending...' : 'Lets talk'}</button>
+            {status==='success' && <div className="text-green-400 text-sm mt-2">Message sent successfully!</div>}
+            {status==='error' && <div className="text-red-400 text-sm mt-2">{error}</div>}
           </form>
         </div>
       </div>
