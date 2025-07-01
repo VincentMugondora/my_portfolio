@@ -33,7 +33,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-gradient-to-t from-[#18181b] via-[#23272F] to-[#18181b] text-gray-400 pt-12 pb-6 px-4 mt-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+      <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-10">
         {/* Logo & Trustpilot */}
         <div className="flex flex-col gap-4 min-w-[200px]">
           <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ const Footer = () => {
           <a href="#" className="hover:text-blue-400 transition text-sm">Contact Us</a>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between mt-8 border-t border-[#23272F] pt-4 gap-4 text-xs text-gray-500">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between mt-8 border-t border-[#23272F] pt-4 gap-4 text-xs text-gray-500">
         <div>&copy; {new Date().getFullYear()} Vincent Mugondora. All rights reserved.</div>
         <div className="flex gap-4">
           <a href="#" className="hover:text-blue-400 transition">Terms & Conditions</a>

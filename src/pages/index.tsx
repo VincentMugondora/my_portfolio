@@ -10,7 +10,7 @@ import ContactSection from '@/components/ContactSection';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-[#111111] min-h-screen text-white flex flex-col justify-between">
+    <div className="w-full">
 
       {/* Hero Section */}
       <Hero />

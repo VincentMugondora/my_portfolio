@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between max-w-6xl mx-auto py-6 px-4 text-gray-400 text-sm w-full relative">
+    <nav className="flex items-center justify-between w-full py-6 px-4 text-gray-400 text-sm relative">
       {/* Brand Name */}
       <span className="font-extrabold text-white text-lg tracking-wide flex items-center z-20">vincent<span className="text-blue-500 ml-1">.</span></span>
       {/* Hamburger Icon */}

@@ -38,7 +38,7 @@ const ContactSection = () => {
 
   return (
     <section className="w-full py-16 px-4 bg-[#111111] flex justify-center">
-      <div className="w-full max-w-6xl bg-[#18181b] rounded-3xl shadow-lg flex flex-col md:flex-row p-8 md:p-16 gap-10">
+      <div className="w-full bg-[#18181b] rounded-3xl shadow-lg flex flex-col md:flex-row p-8 md:p-16 gap-10">
         {/* Left: Heading & Contact Info */}
         <div className="flex-1 flex flex-col justify-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 leading-tight">
@@ -89,7 +89,7 @@ const ContactSection = () => {
             ))}
           </div>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <input name="name" type="text" placeholder="Name" value={form.name} onChange={handleChange} className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
               <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} className="flex-1 bg-[#23272F] border border-[#23272F] rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-blue-500" />
             </div>
