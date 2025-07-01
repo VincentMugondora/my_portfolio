@@ -14,8 +14,12 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
+  const handleQuoteClick = () => {
+    router.push('/contact');
+  };
+
   return (
-    <nav className="flex items-center fixed justify-between w-full py-6 px-4 text-gray-400 text-sm relative">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-[#18181b]/70 border-b border-[#23272F]/60 flex items-center justify-between py-4 px-4 text-gray-400 text-sm">
       {/* Brand Name */}
       <span className="font-extrabold text-white text-lg tracking-wide flex items-center z-20">vincent<span className="text-blue-500 ml-1">.</span></span>
       {/* Hamburger Icon */}
@@ -46,7 +50,10 @@ const Navbar: React.FC = () => {
       </div>
       {/* Get a Quote Button Desktop */}
       <div className="hidden md:block ml-6">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition-colors duration-200">
+        <button
+          className="bg-gradient-to-tr from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white px-5 py-2 rounded-lg font-semibold transition-colors duration-200"
+          onClick={handleQuoteClick}
+        >
           Get a Quote
         </button>
       </div>
@@ -71,7 +78,10 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
         </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 mt-6 w-4/5 max-w-xs mx-auto" onClick={() => setMenuOpen(false)}>
+        <button
+          className="bg-gradient-to-tr from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 mt-6 w-4/5 max-w-xs mx-auto"
+          onClick={handleQuoteClick}
+        >
           Get a Quote
         </button>
       </div>

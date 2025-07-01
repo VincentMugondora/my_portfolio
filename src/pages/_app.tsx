@@ -7,7 +7,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className='bg-[#111111]'>
       <Navbar />
-      <Component {...pageProps} />
+      <div className='mt-20'>
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </div>
   )
