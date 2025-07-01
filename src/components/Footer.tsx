@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [newsletterMsg, setNewsletterMsg] = useState('');
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNewsletterStatus('loading');
+    setNewsletterMsg('');
+    try {
+      const res = await fetch('/api/send-newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setNewsletterStatus('success');
+        setNewsletterMsg(data.message || 'Thank you for subscribing!');
+        setNewsletterEmail('');
+      } else {
+        setNewsletterStatus('error');
+        setNewsletterMsg(data.message || 'Failed to subscribe.');
+      }
+    } catch {
+      setNewsletterStatus('error');
+      setNewsletterMsg('Failed to subscribe.');
+    }
+  };
+
   return (
     <footer className="w-full bg-gradient-to-t from-[#18181b] via-[#23272F] to-[#18181b] text-gray-400 pt-12 pb-6 px-4 mt-12">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-10">
@@ -23,13 +52,22 @@ const Footer = () => {
         <div className="flex flex-col gap-2 min-w-[260px]">
           <div className="font-semibold text-white mb-1 text-left text-lg">Newsletter</div>
           <div className="text-xs mb-2 text-left text-gray-300">Enter Your E-mail & Get the Latest Updates</div>
-          <form className="w-full">
+          <form className="w-full" onSubmit={handleNewsletterSubmit}>
             <div className="flex items-center bg-[#181c2f] rounded-2xl px-2 py-1 shadow-inner border border-[#23272F] focus-within:border-blue-500 transition-all">
-              <input type="email" placeholder="info@gmail.com" className="flex-1 bg-transparent outline-none border-none px-3 py-2 text-gray-200 text-sm placeholder-gray-500" />
-              <button type="submit" className="ml-2 h-9 w-9 flex items-center justify-center rounded-xl bg-gradient-to-tr from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 transition-all shadow-md">
+              <input
+                type="email"
+                placeholder="info@gmail.com"
+                value={newsletterEmail}
+                onChange={e => setNewsletterEmail(e.target.value)}
+                className="flex-1 bg-transparent outline-none border-none px-3 py-2 text-gray-200 text-sm placeholder-gray-500"
+                required
+              />
+              <button type="submit" disabled={newsletterStatus==='loading'} className="ml-2 h-9 w-9 flex items-center justify-center rounded-xl bg-gradient-to-tr from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 transition-all shadow-md">
                 <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
             </div>
+            {newsletterStatus==='success' && <div className="text-green-400 text-xs mt-2">{newsletterMsg}</div>}
+            {newsletterStatus==='error' && <div className="text-red-400 text-xs mt-2">{newsletterMsg}</div>}
           </form>
         </div>
         {/* Products */}
