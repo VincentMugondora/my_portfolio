@@ -40,12 +40,17 @@ const Footer = () => {
             <Image src="/person.png" alt="Vincent Mugondora" width={36} height={36} className="rounded-full" />
             <span className="font-bold text-white text-lg">Vincent</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Image src="/vercel.svg" alt="Trustpilot" width={60} height={18} />
-            <div className="flex flex-col text-xs">
-              <span className="text-green-400 font-semibold">4.9/5 on Trustpilot</span>
-              <span className="text-gray-500">635 reviews</span>
+          <div className="bg-[#23272F] rounded-xl px-4 py-2 flex flex-col items-start shadow mt-1 w-fit">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-green-400 font-bold text-xs">Trustpilot</span>
+              <span className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="currentColor" className="text-green-400"><polygon points="10,1 12.59,7.36 19.51,7.64 14,12.14 15.82,19.02 10,15.5 4.18,19.02 6,12.14 0.49,7.64 7.41,7.36"/></svg>
+                ))}
+              </span>
+              <span className="text-xs text-white font-semibold ml-1">4.9/5</span>
             </div>
+            <span className="text-xs text-gray-400">635 reviews</span>
           </div>
         </div>
         {/* Newsletter */}
