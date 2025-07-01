@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -11,6 +12,7 @@ const navItems = [
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <nav className="flex items-center justify-between w-full py-6 px-4 text-gray-400 text-sm relative">
@@ -28,12 +30,12 @@ const Navbar: React.FC = () => {
       </button>
       {/* Nav Links Desktop */}
       <div className="hidden md:flex justify-center space-x-10 flex-1">
-        {navItems.map((item, idx) => (
+        {navItems.map((item) => (
           <Link
             key={item.name}
             href={item.href}
             className={
-              idx === 0
+              router.pathname === item.href
                 ? 'text-white border-b-2 border-blue-500 pb-1'
                 : 'hover:text-white transition-colors duration-200'
             }
@@ -54,12 +56,12 @@ const Navbar: React.FC = () => {
         style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
       >
         <div className="flex flex-col items-start justify-center w-4/5 max-w-xs space-y-7">
-          {navItems.map((item, idx) => (
+          {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={
-                idx === 0
+                router.pathname === item.href
                   ? 'text-white text-2xl font-bold border-b-2 border-blue-500 pb-1 text-left w-full'
                   : 'text-gray-300 text-2xl font-semibold hover:text-white transition-colors duration-200 text-left w-full'
               }
