@@ -35,8 +35,8 @@ const PortfolioSection = () => {
   const filtered = selected === 'All' ? projects : projects.filter(p => p.category === selected);
 
   return (
-    <section className="w-full py-16 px-4 bg-[#111111]">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full min-h-screen py-16 px-0 bg-[#111111] flex justify-center items-start">
+      <div className="w-full h-full flex flex-col">
         {/* Section Title */}
         <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-8">
           RECENT <span className="text-blue-500 italic">BEST WORK</span> <br className="hidden md:block" /> PORTFOLIO
