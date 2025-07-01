@@ -7,7 +7,6 @@ import TopSkills from '@/components/TopSkills';
 import PortfolioSection from '@/components/PortfolioSection';
 import Testimonials from '@/components/Testimonials';
 import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
 
 const Home: React.FC = () => {
   return (
@@ -21,7 +20,6 @@ const Home: React.FC = () => {
       <PortfolioSection />
       <Testimonials />
       <ContactSection />
-      <Footer />
     </div>
   );
 };
