@@ -15,7 +15,9 @@ const Navbar: React.FC = () => {
   const router = useRouter();
 
   const handleQuoteClick = () => {
-    router.push('/contact');
+    if (router.pathname !== '/contact') {
+      router.push('/contact');
+    }
   };
 
   return (

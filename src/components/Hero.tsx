@@ -6,7 +6,9 @@ const Hero = () => {
   const router = useRouter();
 
   const handleContactRedirect = () => {
-    router.push('/contact');
+    if (router.pathname !== '/contact') {
+      router.push('/contact');
+    }
   };
 
   return (
