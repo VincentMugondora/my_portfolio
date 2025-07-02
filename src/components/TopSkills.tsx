@@ -74,7 +74,7 @@ const TopSkills = () => (
             className="bg-[#18181b] rounded-xl flex flex-col items-center justify-center p-6 min-h-[140px] group cursor-pointer transition-all duration-300"
           >
             {skill.icon}
-            <span className={`block mt-4 mb-2 text-lg font-bold text-gray-400`}>{skill.percent}%</span>
+            <span className="block mt-4 mb-2" />
             <span className="text-gray-300 text-sm font-medium">{skill.name}</span>
           </div>
         ))}
