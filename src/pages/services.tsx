@@ -25,7 +25,7 @@ const ServicesPage: React.FC = () => {
       {/* Experienced Services Section */}
       <ExperiencedServices />
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
