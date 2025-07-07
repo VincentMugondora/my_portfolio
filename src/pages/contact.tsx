@@ -63,7 +63,7 @@ const ContactPage: React.FC = () => {
       </section>
       <section className="flex flex-col md:flex-row items-start justify-center w-full px-4 pb-16 gap-12">
         {/* Contact Card */}
-        <div className="bg-[#18181b] border border-[#23272F] shadow-lg rounded-2xl p-8 flex flex-col items-start max-w-sm w-full mx-auto md:mx-0">
+        <div className="shadow-none rounded-2xl p-8 flex flex-col items-start max-w-sm w-full mx-auto md:mx-0 bg-transparent border-none">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-blue-600 rounded-full p-2">
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7.5" strokeWidth="2"/><path d="M3 6l9 6 9-6" strokeWidth="2"/></svg>
@@ -146,7 +146,7 @@ const ContactPage: React.FC = () => {
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
         <div className="flex flex-col gap-6">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+            <div key={idx} className="rounded-xl p-0 shadow-none bg-transparent border-none">
               <div className="font-semibold text-gray-800 mb-2">{faq.q}</div>
               <div className="text-gray-600 text-sm">{faq.a}</div>
             </div>
