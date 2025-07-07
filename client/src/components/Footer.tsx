@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 
 const Footer = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -37,8 +36,7 @@ const Footer = () => {
         {/* Logo & Tagline */}
         <div className="flex flex-col gap-4 min-w-[200px]">
           <div className="flex items-center gap-2">
-            <Image src="/person.png" alt="Vincent Mugondora" width={36} height={36} className="rounded-full" />
-            <span className="font-bold text-white text-lg">Vincent</span>
+            <a href="/login" className="font-bold text-white text-lg hover:text-blue-400 transition">Vincent</a>
           </div>
           <div className="bg-[#23272F] rounded-xl px-4 py-2 flex flex-col items-start shadow mt-1 w-fit">
             <span className="text-blue-400 font-bold text-xs mb-1">Software Engineer</span>

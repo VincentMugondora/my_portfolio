@@ -3,17 +3,20 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');
+
+dotenv.config();
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 const JWT_SECRET = 'your_jwt_secret'; // In production, use env vars
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/authdb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const mongoUri = process.env.MONGOURI || 'mongodb://localhost:27017/authdb';
+mongoose.connect(mongoUri);
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
