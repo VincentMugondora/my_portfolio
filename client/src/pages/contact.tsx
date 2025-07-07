@@ -97,7 +97,7 @@ const ContactPage: React.FC = () => {
             </form>
             <div className="mt-4 text-gray-400 text-sm text-center">
               <div className="mb-1">Email: <a href="mailto:vincentmugondora@gmail.com" className="text-blue-400 underline">vincentmugondora@gmail.com</a></div>
-              <div className="mb-1">Phone: <a href="tel:+263778123456" className="text-blue-400 underline">+263 778 123 456</a></div>
+              <div className="mb-1">Phone: <a href="tel:+263777530322" className="text-blue-400 underline">+263 777 530322</a></div>
               <div className="mb-1">Location: <span className="text-gray-300">Harare, Zimbabwe</span></div>
               <div>LinkedIn: <a href="https://www.linkedin.com/in/vincent-mugondora-7b2a922b3" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">vincent-mugondora</a></div>
             </div>
