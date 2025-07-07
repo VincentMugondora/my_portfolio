@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const LoginPage: React.FC = () => {
   const [form, setForm] = useState({ username: '', password: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [msg, setMsg] = useState('');
-  const [token, setToken] = useState('');
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,7 +15,6 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setStatus('loading');
     setMsg('');
-    setToken('');
     try {
       const res = await fetch('http://localhost:4000/login', {
         method: 'POST',
@@ -25,7 +25,9 @@ const LoginPage: React.FC = () => {
       if (res.ok && data.token) {
         setStatus('success');
         setMsg('Login successful!');
-        setToken(data.token);
+        setTimeout(() => {
+          router.push('/dashboard');
+        }, 800);
       } else {
         setStatus('error');
         setMsg(data.message || 'Login failed.');
@@ -69,12 +71,6 @@ const LoginPage: React.FC = () => {
           {status === 'success' && <div className="text-green-400 text-sm mt-2">{msg}</div>}
           {status === 'error' && <div className="text-red-400 text-sm mt-2">{msg}</div>}
         </form>
-        {token && (
-          <div className="mt-6 break-all text-xs text-gray-400">
-            <div className="mb-1 text-green-400 font-semibold">JWT Token:</div>
-            <code>{token}</code>
-          </div>
-        )}
       </div>
     </div>
   );
